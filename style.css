@@ -64,6 +64,7 @@ a:hover {
 
 /* Photos Thomas */
 .tp_profile-pic {
+    width: 25rem;
     border-radius: 30%;
 }
 .about-pic {
