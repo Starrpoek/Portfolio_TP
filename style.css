@@ -302,6 +302,8 @@ section {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    overflow: visible;
+    padding-inline: 1rem;
 }
 .article-container {
     display: flex;
@@ -325,9 +327,16 @@ article .icon {
 
 #projects {
     position: relative;
+    padding: 4vh 2rem;
+    margin: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+    overflow: visible; /* IMPORTANT pour le zoom */
+    isolation: isolate;
 }
 #projects .details-container {
-    width: 33%;
+    position: relative;
+    z-index: 1;
 }
 #projects .articles-container {
     height: 500px; 
@@ -349,7 +358,34 @@ article .icon {
     color: black;
     border-color: rgb(163, 163, 163);
 }
-
+/* Carousel */
+.project-carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 2rem;
+    scroll-snap-type: x mandatory;
+    padding: 1rem 1rem;
+    scrollbar-width: none;
+    overflow-y: visible; /* On ajoute ça */
+  }
+  
+  .project-carousel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+  
+  .project-carousel .details-container {
+    min-width: 300px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+  }
+  
+  .project-carousel .details-container:hover {
+    transform: scale(1.05); /* Optionnel : un poil plus gros si tu veux tester */
+    box-shadow: 0 0 10px #f1c40f;
+    z-index: 10;
+  }
+  
 /* Section Contact */
 
 #contact {
@@ -392,3 +428,114 @@ footer {
 footer p {
     text-align: center;
 }
+
+/* Test effets Jinx */
+.glitch-text {
+    position: relative;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #f1c40f;
+    text-align: center;
+    text-shadow: 0 0 2px white;
+    animation: glitch-text-flash 1.5s infinite;
+  }
+  
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.8;
+    color: white;
+    background: black;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    width: 100%;
+  }
+  
+  .glitch-text::before {
+    color: #ffffff;
+    animation: glitch-before-flash 2s infinite linear alternate-reverse;
+  }
+  
+  .glitch-text::after {
+    color: #f1c40f;
+    animation: glitch-after-flash 1.8s infinite linear alternate-reverse;
+  }
+  
+  @keyframes glitch-before-flash {
+    0% { clip: rect(0, 9999px, 0, 0); transform: translate(-1px, -1px); }
+    20% { clip: rect(5px, 9999px, 30px, 0); transform: translate(2px, -2px); }
+    40% { clip: rect(15px, 9999px, 50px, 0); transform: translate(-2px, 1px); }
+    60% { clip: rect(25px, 9999px, 80px, 0); transform: translate(2px, 2px); }
+    80% { clip: rect(35px, 9999px, 100px, 0); transform: translate(-1px, -1px); }
+    100% { clip: rect(0, 9999px, 0, 0); transform: translate(0, 0); }
+  }
+  
+  @keyframes glitch-after-flash {
+    0% { clip: rect(90px, 9999px, 100px, 0); transform: translate(1px, 2px); }
+    20% { clip: rect(70px, 9999px, 80px, 0); transform: translate(-1px, -2px); }
+    40% { clip: rect(50px, 9999px, 60px, 0); transform: translate(1px, 1px); }
+    60% { clip: rect(30px, 9999px, 40px, 0); transform: translate(-2px, 2px); }
+    80% { clip: rect(10px, 9999px, 20px, 0); transform: translate(2px, -1px); }
+    100% { clip: rect(90px, 9999px, 100px, 0); transform: translate(0, 0); }
+  }
+  
+  @keyframes glitch-text-flash {
+    0% { opacity: 1; }
+    10% { opacity: 0.95; }
+    20% { opacity: 1; }
+    30% { opacity: 0.9; }
+    40% { opacity: 1; }
+    100% { opacity: 1; }
+  }
+
+/* Animation secousse façon Jinx */
+@keyframes jinxShake {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    20% { transform: translate(-1px, 1px) rotate(-1deg); }
+    40% { transform: translate(-2px, -1px) rotate(1deg); }
+    60% { transform: translate(1px, 2px) rotate(0deg); }
+    80% { transform: translate(-1px, -2px) rotate(1deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }
+  
+  /* Application au survol */
+  .jinx-shake {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .jinx-shake:hover {
+    animation: jinxShake 0.4s infinite;
+    background-color: #f1c40f;
+    color: black;
+  }
+  /* Effet surligneur */ 
+  .highlight-42 {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    color: black;
+    z-index: 1;
+  }
+  
+  .highlight-42::before {
+    content: "";
+    position: absolute;
+    bottom: 0.05em;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: #f1c40f;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s ease;
+    border-radius: 4px;
+  }
+  
+  /* Classe JS déclenchée quand visible à l'écran */
+  .highlight-42.visible::before {
+    transform: scaleX(1);
+  }
+

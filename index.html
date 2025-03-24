@@ -42,10 +42,12 @@
         <div class="section__text">
             <p class="section__text__p1">Bonjour ! Je suis</p>
             <h1 class="title">Thomas PEOCH</h1>
-            <p class="section__text__p2">Développeur Web Junior en freelance</p>
+            <p class="section__text__p2 glitch-text" data-text="Développeur Web Junior en freelance">
+                Développeur Web Junior en freelance
+            </p>              
             <div class="btn-container">
                 <button class="btn btn-color-2" onclick="window.open('./assets/CV_TP-2025.pdf')">Télécharger mon CV</button>
-                <button class="btn btn-color-1" onclick="location.href='./#contact'">Me contacter</button>
+                <button class="btn btn-color-1 jinx-shake" onclick="location.href='./#contact'">Me contacter</button>
             </div>
             <div id="socials-container">
                 <img src="./assets/linkedin.png" alt="Mon lien Linkedin" class="icon" onclick="location.href='https://www.linkedin.com/in/thomas-peoch/'"/>
@@ -70,7 +72,7 @@
                     <div class="details-container">
                         <img src="./assets/education.png" alt="Icone de formation" class="icon">
                         <h3>Formations</h3>
-                        <p>- Autodidacte <br>- OpenClassRooms : Développeur Wordpress (2024) <br>- Piscine de 42 Lyon Juillet 2025</p>
+                        <p>- Autodidacte <br>- OpenClassRooms : Développeur Wordpress (2024) <br>- <span class="highlight-42" data-text="Piscine de 42 Lyon Juillet 2025">Piscine de 42 Lyon Juillet 2025</span></p>
                     </div>
                 </div>
                 <div class="text-container">
@@ -134,8 +136,8 @@
                         <article>
                             <img src="./assets/checkmark.png" alt="Icone des compétences" class="icon">
                         <div>
-                            <h3>Environnement</h3>                   
-                            <p>3/5 en progression</p>
+                            <h3 class="glitch-text" data-text="Le C">Le C</h3>                   
+                            <p>2/5 en découverte</p>
                         </div>
                         </article>
                     </div>
@@ -160,7 +162,7 @@
                         <article>
                             <img src="./assets/checkmark.png" alt="Icone des compétences" class="icon">
                         <div>
-                            <h3>Git-GitHub</h3>                   
+                            <h3 class="glitch-text" data-text="Git-GitHub">Git-GitHub</h3>                   
                             <p>3/5 en progression</p>
                         </div>
                         </article>
@@ -181,7 +183,16 @@
         <p class="section__text__p1">Découvrez mes</p>
         <h1 class="title">Projets</h1>
         <div class="experience-details-container">
-            <div class="about-containers">
+            <div class="about-containers project-carousel">
+                <div class="details-container color-container">
+                    <div class="article-container">
+                      <img src="./assets/Idae_logo.svg" alt="Nouveau Projet" class="project-img">
+                    </div>
+                    <h2 class="experience-sub-title project-title">Mission SEO 2025</h2>
+                    <p>Partenariat dans le cadre de ma reconversion pro</p>
+                    <div class="btn-container">
+                    </div>
+                  </div>
                 <div class="details-container color-container">
                     <div class="article-container">
                         <img src="./assets/screenshot-nathalie-mota-test.png" alt="Projet 3" class="project-img">
@@ -226,6 +237,14 @@
             <div class="contact-info-container">
                 <img src="./assets/linkedin.png" alt="Icone Linkedin" class="icon contact-icon">
                 <p><a href="https://www.linkedin.com/in/thomas-peoch/">Thomas PEOCH</a></p>
+            </div>
+        </div>
+        <p class="section__text__p1 glitch-text" data-text="Envie de soutenir ma reconversion">Envie de soutenir ma reconversion ?</p>
+        <h1 class="title">Plus d'infos sur ma plateforme GoFundMe</h1>
+        <div class="contact-info-upper-container jinx-shake">
+            <div class="contact-info-container">
+                <img src="./assets/piggy.png" alt="Icone donation" class="icon donation-icon">
+                <p><a href="https://gofund.me/89ba12e5">GoFundMe</a></p>
             </div>
         </div>
     </section>
